@@ -40,20 +40,22 @@ class MyApp extends StatelessWidget {
                 Icons.menu,
                 color: Colors.black,
               )),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Stack(
+            fit: StackFit.loose,
+            alignment: Alignment.center,
             children: [
               IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.notifications_outlined,
-                    color: Colors.black,
-                  )),
-              Icon(
-                Icons.circle,
-                size: 10,
-                color: Colors.deepOrangeAccent,
-              )
+                onPressed: () {},
+                icon: Icon(Icons.notifications_outlined, color: Colors.black),
+              ),
+              Positioned(
+                  top: 10,
+                  right: 10,
+                  child: Icon(
+                    Icons.circle,
+                    color: Colors.red,
+                    size: 7,
+                  ))
             ],
           ),
         ],
@@ -65,43 +67,58 @@ class MyApp extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              'nct.jpg',
-              width: 150,
-              height: 150,
-              fit: BoxFit.cover,
-            ),
             Container(
-              padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-              width: 358,
+              margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+              child: Image.asset(
+                'nct.jpg',
+                width: 150,
+                height: 150,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('캐논 DSLR 100D (단렌즈,\n충전기 16기가 SD 포함)',
-                      style: TextStyle(fontWeight: FontWeight.bold)),
-                  Text(
-                    '성동구 행당동 * 끌올 10분전',
-                    style: TextStyle(fontSize: 10, color: Colors.black54),
-                  ),
-                  Text(
-                    '210,000원',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.favorite_outline_sharp,
-                        color: Colors.black54,
-                      ),
-                      Text(
-                        '4',
-                        style: TextStyle(
-                            color: Colors.black54, ),
-                      )
-                    ],
-                  )
+                  Flexible(
+                      flex: 3,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text('마크 런쥔 제노 해찬 \n재민 천러 지성 NCT DREAM',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text(
+                            '그놈의 광야 * 끌올 10분전',
+                            style:
+                                TextStyle(fontSize: 10, color: Colors.black54),
+                          ),
+                          Text(
+                            'Candy',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 12),
+                          ),
+                        ],
+                      )),
+                  Flexible(
+                      flex: 2,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.favorite_outline_sharp,
+                            color: Colors.black54,
+                          ),
+                          Text(
+                            '4',
+                            style: TextStyle(
+                              color: Colors.black54,
+                            ),
+                          )
+                        ],
+                      )),
                 ],
               ),
             )
