@@ -15,7 +15,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
           appBar: AppBar(title: Text('앱임')),
-          body: ShopItem(),
+          body: ListView(
+            children: [
+              Text('안녕'),
+              Text('안녕'),
+              Text('안녕'),
+              Text('안녕'),
+              Text('안녕'),
+              Text('안녕'),
+              Text('안녕'),
+              Text('안녕'),
+            ],
+          )
         ));
   }
 }
