@@ -14,13 +14,17 @@ class MyApp extends StatelessWidget {
     // 실제 코딩은 여기서!
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(title: Text('앱임')),
-      body: Row(
-        children: [
-          Expanded(child: Container(color: Colors.blue)),
-          Container(width: 100, color: Colors.green)
-        ],
-      ),
-    ));
+          appBar: AppBar(title: Text('앱임')),
+          body: ShopItem(),
+        ));
+  }
+}
+
+class ShopItem extends StatelessWidget {
+  const ShopItem({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(child: Text('안녕'));
   }
 }
