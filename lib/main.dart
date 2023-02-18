@@ -1,33 +1,62 @@
 import 'package:flutter/material.dart';
 
 // 실행
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(MyApp());
 
 // 앱의 메인 페이지 만드는 방법
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
+  int counter = 0;
 
   @override
   Widget build(BuildContext context) {
     // 실제 코딩은 여기서!
     return MaterialApp(
         home: Scaffold(
-          appBar: AppBar(title: Text('앱임')),
-          body: ListView(
-            children: [
-              Text('안녕'),
-              Text('안녕'),
-              Text('안녕'),
-              Text('안녕'),
-              Text('안녕'),
-              Text('안녕'),
-              Text('안녕'),
-              Text('안녕'),
-            ],
-          )
-        ));
+      appBar: AppBar(title: Text('앱임')),
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text('pushed'),
+          Text(
+            '$counter',
+            style: Theme.of(context).textTheme.displayLarge,
+          ),
+          Container(
+              margin: EdgeInsets.all(5),
+              width: 300,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  FloatingActionButton(
+                      child: Icon(Icons.add),
+                      onPressed: () {
+                        setState(() {
+                          counter++;
+                          print("$counter");
+                        });
+                      }),
+                  FloatingActionButton(
+                      child: Icon(Icons.remove),
+                      onPressed: () {
+                        setState(() {
+                          counter--;
+                          print("$counter");
+                        });
+                      })
+                ],
+              )),
+        ],
+      )),
+    ));
   }
 }
 
