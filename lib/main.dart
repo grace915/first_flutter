@@ -30,30 +30,31 @@ class MyAppState extends State<MyApp> {
             '$counter',
             style: Theme.of(context).textTheme.displayLarge,
           ),
-          Container(
-              margin: EdgeInsets.all(5),
-              width: 300,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  FloatingActionButton(
-                      child: Icon(Icons.add),
-                      onPressed: () {
-                        setState(() {
-                          counter++;
-                          print("$counter");
-                        });
-                      }),
-                  FloatingActionButton(
-                      child: Icon(Icons.remove),
-                      onPressed: () {
-                        setState(() {
-                          counter--;
-                          print("$counter");
-                        });
-                      })
-                ],
-              )),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FloatingActionButton(
+                  child: Icon(Icons.add),
+                  onPressed: () {
+                    setState(() {
+                      counter++;
+                      print("$counter");
+                    });
+                  }),
+              SizedBox(width: 20,),
+              FloatingActionButton(
+                  child: Icon(Icons.remove),
+                  onPressed: () {
+                    setState(() {
+                      counter--;
+                      print("$counter");
+                    });
+                  })
+            ],
+          )
         ],
       )),
     ));
